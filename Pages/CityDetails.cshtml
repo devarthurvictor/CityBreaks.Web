@@ -1,0 +1,26 @@
+﻿@page "{name}"
+@model CityDetailsModel
+@{
+    ViewData["Title"] = $"{Model.City.Name} Details";
+}
+
+<h1>@Model.City.Name, @Model.City.Country.CountryName</h1>
+
+<h2>Properties</h2>
+<table class="table">
+    <thead>
+        <tr>
+            <th>Nome</th>
+            <th>Preço por noite</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var property in Model.City.Properties)
+        {
+            <tr>
+                <td>@property.Name</td>
+                <td>@property.PricePerNight.ToString("C")</td>
+            </tr>
+        }
+    </tbody>
+</table>
